@@ -38,8 +38,8 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 650px;
-  margin-bottom: 60px;
+  height: 600px;
+  margin-bottom: 0px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
