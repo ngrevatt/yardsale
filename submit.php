@@ -69,7 +69,8 @@
     <div class="container">
         <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-        	<div class="panel panel-default">
+          <center>
+   <h3>
         		<?php
 $servername = "localhost";
 $username = "root";
@@ -101,7 +102,9 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
-</div>
+</h3>
+<h4><a href="index.html">Click here to go back to the homepage</a></h4>
+<br><br><br><br><br><br><br><br><br></center>
 </div>
 </div>
 

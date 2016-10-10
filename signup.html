@@ -97,7 +97,7 @@
 
 			    	<div class="form-group">
 			    		<input type="address" name="address" id="address" class="form-control input-sm" placeholder="Address"
-                                            data-validation="required" data-validation="alphanumeric">
+                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z0-9\s,'-]*$">
                                             
 			    	</div>
 
@@ -105,7 +105,7 @@
 			    		<div class="col-xs-6 col-sm-6 col-md-6">
 			    			<div class="form-group">
 			    				<input type="city" name="city" id="city" class="form-control input-sm" placeholder="City"
-                                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z]+$">
+                                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$">
 			    			</div>
 			    		</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
@@ -173,20 +173,6 @@
                                              data-validation="required custom" data-validation-regexp="^\d{5}(?:[-\s]\d{4})?$">
 			    	</div>
 
-			    	<div class="row">
-			    		<div class="col-xs-6 col-sm-6 col-md-6">
-			    			<div class="form-group">
-			    				<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"
-                                                            data-validation="required strength" data-validation-strength="2">
-			    			</div>
-			    		</div>
-			    		<div class="col-xs-6 col-sm-6 col-md-6">
-			    			<div class="form-group">
-			    				<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password"
-                                                            data-validation="required" data-validation="confirmation" data-validation-confirmation="password">
-			    			</div>
-			    		</div>
-			    	</div>
 			    			
 			<input type="submit" value="Validate" class="btn btn-info btn-block">
 			    		
