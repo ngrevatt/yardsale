@@ -79,26 +79,25 @@
 			    		<div class="col-xs-6 col-sm-6 col-md-6">
 			    			<div class="form-group">
 			                		<input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name"
-                                                                                                        data-validation="required" data-validation-length="min1" data-validation-error-msg="First name has to be alphanumeric" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$">
+                                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z]+$">
 			    			</div>
 			    		</div>
 			    		<div class="col-xs-6 col-sm-6 col-md-6">
 			    			<div class="form-group">
 			    				<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name"
-                                                            data-validation="required" data-validation="length alphanumeric" data-validation-length="min1" data-validation-error-msg="Last name has to be alphanumeric" data-validation="custom" data-validation-regexp="^([a-zA-Z]+)$">
-			    			</div>
+                                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z]+$">
 			    			</div>
                                                   		</div>
 			    	</div>
 
 			    	<div class="form-group">
 			    		<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address"
-                                            data-validation="required" data-validation="email" data-validation-error-msg="Not a valid email">
+                                            data-validation="required email" data-validation-error-msg="Not a valid email">
 			    	</div>
 
 			    	<div class="form-group">
 			    		<input type="address" name="address" id="address" class="form-control input-sm" placeholder="Address"
-                                            data-validation="required">
+                                            data-validation="required" data-validation="alphanumeric">
                                             
 			    	</div>
 
@@ -106,13 +105,12 @@
 			    		<div class="col-xs-6 col-sm-6 col-md-6">
 			    			<div class="form-group">
 			    				<input type="city" name="city" id="city" class="form-control input-sm" placeholder="City"
-                                                            data-validation="required">
+                                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z]+$">
 			    			</div>
 			    		</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<div class="form-group">
 							<select class="form-control" id="state" name="state">
-								<option value="">State</option>
 								<option value="AK">Alaska</option>
 								<option value="AL">Alabama</option>
 								<option value="AR">Arkansas</option>
@@ -172,14 +170,14 @@
 
 				<div class="form-group">
 			    		<input type="zip code" name="zip code" id="zip code" class="form-control input-sm" placeholder="Zip code"
-                                                data-validation="required" data-validation="custom" data-validation-regexp="^(\d{5})$" data-validation-error-msg="Zipcode must be a 5 digit number">
+                                             data-validation="required custom" data-validation-regexp="^\d{5}(?:[-\s]\d{4})?$">
 			    	</div>
 
 			    	<div class="row">
 			    		<div class="col-xs-6 col-sm-6 col-md-6">
 			    			<div class="form-group">
 			    				<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"
-                                                            data-validation="required" data-validation="strength" data-validation-strength="2">
+                                                            data-validation="required strength" data-validation-strength="2">
 			    			</div>
 			    		</div>
 			    		<div class="col-xs-6 col-sm-6 col-md-6">
