@@ -91,8 +91,15 @@ $city = $_POST['city'];
 $zip_code = $_POST['zip_code'];
 $address = $_POST['address'];
 $state = $_POST['state'];
+$month = $_POST['month'];
+$year= $_POST['year'];
+$credit_card = $_POST['credit card'];
+$cvv = $_POST['cvv'];
 
-$sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Address) VALUES ('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address');";
+
+
+$sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Address, CreditNumber, CreditMonth, CreditYear, CVV ) VALUES 
+('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address', '$credit_card', '$month', '$year', '$cvv' );";
   
 if ($conn->query($sql) === TRUE) {
 	echo "New record created successfully";
