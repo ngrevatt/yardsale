@@ -93,7 +93,7 @@ $address = $_POST['address'];
 $state = $_POST['state'];
 $month = $_POST['month'];
 $year= $_POST['year'];
-$credit_card = $_POST['credit card'];
+$credit_card = $_POST['credit_card'];
 $cvv = $_POST['cvv'];
 
 
