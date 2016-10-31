@@ -72,6 +72,23 @@
           <center>
    <h3>
         		<?php
+require __DIR__  . '/Paypal-PHP-SDK/autoload.php';
+use \PayPal\Api\Amount;
+use \PayPal\Api\Details;
+use \PayPal\Api\FundingInstrument;
+use \PayPal\Api\Item;
+use \PayPal\Api\ItemList;
+use \PayPal\Api\Payer;
+use \PayPal\Api\Payment;
+use \PayPal\Api\PaymentCard;
+use \PayPal\Api\Transaction;
+// After Step 1
+$apiContext = new \PayPal\Rest\ApiContext(
+    new \PayPal\Auth\OAuthTokenCredential(
+        'AdVu9DGZFhBp7uHf8HaaeVLVdArG37H98358BNNXNbjalB7lMcdvEmrJcpDtSOf4qdnp5Cnod6syifCZ',     // ClientID
+        'EJwyhEZCT9Kt1bU6M83jrWdVqb-wo_OsXb3Z5Y2nraVwuPmIWtkp8Oys2YWXjSXcK07hPIrh0sPY9E-v'      // ClientSecret
+    )
+);
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -96,11 +113,46 @@ $year= $_POST['year'];
 $credit_card = $_POST['credit_card'];
 $cvv = $_POST['cvv'];
 
+$card = new PaymentCard();
+$card->setType("visa")
+    ->setNumber($credit_card)
+    ->setExpireMonth($month)
+    ->setExpireYear($year)
+    ->setCvv2($cvv)
+    ->setFirstName($first_name)
+    ->setBillingCountry("US")
+    ->setLastName($last_name);
 
+	$amount = new Amount();
+$amount->setCurrency("USD")
+		->setTotal(20);
+$transaction = new Transaction();
+$transaction->setAmount($amount);
+
+$fi = new FundingInstrument();
+$fi->setPaymentCard($card);
+$payer = new Payer();
+$payer->setPaymentMethod("credit_card")
+    ->setFundingInstruments(array($fi));
+$payment = new Payment();
+$payment->setIntent("sale")
+    ->setPayer($payer)
+    ->setTransactions(array($transaction));
+
+	
+$request = clone $payment;
+try {
+    $payment->create($apiContext);
+} catch (Exception $ex) {
+	
+}
 
 $sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Address, CreditNumber, CreditMonth, CreditYear, CVV ) VALUES 
 ('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address', '$credit_card', '$month', '$year', '$cvv' );";
-  
+
+
+
+
 if ($conn->query($sql) === TRUE) {
 	echo "New record created successfully";
 } else {
