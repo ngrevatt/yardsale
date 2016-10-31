@@ -80,6 +80,7 @@ use \PayPal\Api\Item;
 use \PayPal\Api\ItemList;
 use \PayPal\Api\Payer;
 use \PayPal\Api\Payment;
+use \PayPal\Api\PaymentExecution;
 use \PayPal\Api\PaymentCard;
 use \PayPal\Api\Transaction;
 use \PayPal\Api\RedirectUrls;
@@ -102,81 +103,26 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$city = $_POST['city'];
-$zip_code = $_POST['zip_code'];
-$address = $_POST['address'];
-$state = $_POST['state'];
-$month = $_POST['month'];
-$year= $_POST['year'];
-$credit_card = $_POST['credit_card'];
-$cvv = $_POST['cvv'];
+$sdkConfig = array(
+	"mode" => "sandbox"
+);
 
-$sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Address, CreditNumber, CreditMonth, CreditYear, CVV ) VALUES 
-('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address', '$credit_card', '$month', '$year', '$cvv' );";
-
-
-
-
-if ($conn->query($sql) === TRUE) {
-	echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$card = new PaymentCard();
-$card->setType("visa")
-    ->setNumber($credit_card)
-    ->setExpireMonth($month)
-    ->setExpireYear($year)
-    ->setCvv2($cvv)
-    ->setFirstName($first_name)
-    ->setBillingCountry("US")
-    ->setLastName($last_name);
-
-	$amount = new Amount();
-$amount->setCurrency("USD")
-		->setTotal(20);
+$apiContext->setConfig($sdkConfig);
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+echo $_GET["paymentId"];
+echo "<br>";
+echo $_GET["PayerID"];
+$paymentId = $_GET['paymentId'];
+$payment = Payment::get($paymentId, $apiContext);
+$execution = new PaymentExecution();
+$execution->setPayerId($_GET["PayerID"]);
+$amount = new Amount();
 $transaction = new Transaction();
-$transaction->setAmount($amount);
-
-$fi = new FundingInstrument();
-$fi->setPaymentCard($card);
-$payer = new Payer();
-$payer->setPaymentMethod("paypal");
-  //  ->setFundingInstruments(array($fi));
-$redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl("http://localhost/yardsale/checkout.php")
-    ->setCancelUrl("http://www.google.com/");
-$payment = new Payment();
-$payment->setIntent("sale")
-    ->setPayer($payer)
-	->setRedirectUrls($redirectUrls)
-    ->setTransactions(array($transaction));
-
-	
-$request = clone $payment;
-try {
-    $payment->create($apiContext);
-	$jfo = json_decode($payment);
-	$jsonlinks = $jfo->links;
-	$approvalurl = ($jsonlinks[1])->href;
-	
-	header("Location: $approvalurl");
-	die();
-	
-	
-} catch (PayPal\Exception\PayPalConnectionException $ex) {
-    echo $ex->getCode(); // Prints the Error Code
-    echo $ex->getData(); // Prints the detailed error message 
-    die($ex);
-} catch (Exception $ex) {
-    die($ex);
-}
-
-
+$amount->setCurrency('USD');
+ $amount->setTotal(20);
+ $transaction->setAmount($amount);
+ $execution->addTransaction($transaction);
+$payment->execute($execution, $apiContext);
 
 
 $conn->close();
