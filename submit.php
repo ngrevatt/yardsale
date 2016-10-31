@@ -73,6 +73,7 @@
    <h3>
         		<?php
 require __DIR__  . '/Paypal-PHP-SDK/autoload.php';
+require __DIR__  . '/PHPMailer/PHPMailerAutoload.php';
 use \PayPal\Api\Amount;
 use \PayPal\Api\Details;
 use \PayPal\Api\FundingInstrument;
@@ -160,7 +161,7 @@ $payment->setIntent("sale")
 $request = clone $payment;
 try {
     $payment->create($apiContext);
-	$jfo = json_decode($payment);
+	$jfo = jso)_decode($payment);
 	$jsonlinks = $jfo->links;
 	$approvalurl = ($jsonlinks[1])->href;
 	

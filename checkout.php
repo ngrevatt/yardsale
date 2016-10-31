@@ -125,6 +125,29 @@ $amount->setCurrency('USD');
 $payment->execute($execution, $apiContext);
 
 
+$mail = new PHPMailer;
+$mail->isSMTP();
+$mail->SMTPDebug = 2;
+$mail->Debugoutput = 'html';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+$mail->Username = "yardsaleuva@gmail.com";
+$mail->Password = "doyouprefermetersoryards";
+$mail->setFrom('hello@yardsale.com', 'Nathaniel Grevatt');
+$mail->addReplyTo('replyto@yardsale.com', 'Nathaniel Grevatt');
+$mail->addAddress($email, $first_name);
+$mail->Subject = 'Welcome to Yardsale';
+$mail->AltBody = 'Congrats on signing up with Yardsale!';
+
+if (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+    echo "Message sent!";
+}
+
+
 $conn->close();
 ?>
 </h3>
