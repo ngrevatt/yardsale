@@ -120,7 +120,30 @@ $sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Add
 
 
 
+$mail = new PHPMailer();
+$mail->isSMTP();
+$mail->SMTPDebug = 0;
+$mail->Debugoutput = 'html';
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+$mail->Username = "yardsaleuva@gmail.com";
+$mail->Password = "doyouprefermetersoryards?";
+$mail->setFrom('yardsaleuva@gmail.com', 'Nathaniel Grevatt');
+$mail->addReplyTo('yardsaleuva@gmail.com', 'Nathaniel Grevatt');
+$mail->addAddress($email, $first_name);
+$mail->Subject = 'Welcome to Yardsale';
+$mail->Body = 'Congrats on signing up with Yardsale!';
 
+if (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+	
+	
+} else {
+    echo "Message sent!<br>";
+	//header("Location: http://www.yahoo.com/");
+}
 if ($conn->query($sql) === TRUE) {
 	echo "New record created successfully";
 } else {
@@ -150,7 +173,7 @@ $payer->setPaymentMethod("paypal");
   //  ->setFundingInstruments(array($fi));
 $redirectUrls = new RedirectUrls();
 $redirectUrls->setReturnUrl("http://localhost/yardsale/checkout.php")
-    ->setCancelUrl("http://www.google.com/");
+    ->setCancelUrl("http://localhost/yardsale/signup.html");
 $payment = new Payment();
 $payment->setIntent("sale")
     ->setPayer($payer)
@@ -161,7 +184,7 @@ $payment->setIntent("sale")
 $request = clone $payment;
 try {
     $payment->create($apiContext);
-	$jfo = jso)_decode($payment);
+	$jfo = json_decode($payment);
 	$jsonlinks = $jfo->links;
 	$approvalurl = ($jsonlinks[1])->href;
 	
