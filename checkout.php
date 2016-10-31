@@ -73,6 +73,7 @@
    <h3>
         		<?php
 require __DIR__  . '/Paypal-PHP-SDK/autoload.php';
+
 use \PayPal\Api\Amount;
 use \PayPal\Api\Details;
 use \PayPal\Api\FundingInstrument;
@@ -109,9 +110,7 @@ $sdkConfig = array(
 
 $apiContext->setConfig($sdkConfig);
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-echo $_GET["paymentId"];
-echo "<br>";
-echo $_GET["PayerID"];
+
 $paymentId = $_GET['paymentId'];
 $payment = Payment::get($paymentId, $apiContext);
 $execution = new PaymentExecution();
@@ -124,28 +123,8 @@ $amount->setCurrency('USD');
  $execution->addTransaction($transaction);
 $payment->execute($execution, $apiContext);
 
+echo "Congrats you successfully paid and signed up!";
 
-$mail = new PHPMailer;
-$mail->isSMTP();
-$mail->SMTPDebug = 2;
-$mail->Debugoutput = 'html';
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->SMTPSecure = 'tls';
-$mail->SMTPAuth = true;
-$mail->Username = "yardsaleuva@gmail.com";
-$mail->Password = "doyouprefermetersoryards";
-$mail->setFrom('hello@yardsale.com', 'Nathaniel Grevatt');
-$mail->addReplyTo('replyto@yardsale.com', 'Nathaniel Grevatt');
-$mail->addAddress($email, $first_name);
-$mail->Subject = 'Welcome to Yardsale';
-$mail->AltBody = 'Congrats on signing up with Yardsale!';
-
-if (!$mail->send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-    echo "Message sent!";
-}
 
 
 $conn->close();
