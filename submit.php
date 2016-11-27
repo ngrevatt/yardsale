@@ -114,9 +114,11 @@ $month = $_POST['month'];
 $year= $_POST['year'];
 $credit_card = $_POST['credit_card'];
 $cvv = $_POST['cvv'];
+$password = $_POST['password'];
 
-$sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Address, CreditNumber, CreditMonth, CreditYear, CVV ) VALUES 
-('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address', '$credit_card', '$month', '$year', '$cvv' );";
+
+$sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Address, CreditNumber, CreditMonth, CreditYear, CVV, Password ) VALUES 
+('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address', '$credit_card', '$month', '$year', '$cvv', '$password' );";
 
 
 
