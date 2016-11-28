@@ -1,13 +1,7 @@
 
+﻿
 <!DOCTYPE html>
-
 <html lang="en">
-<?php
-  setcookie('logged_in', true, time() - 3600, '/');
-  echo "You have been logged out";
-?>
-
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +10,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+
     <title>YardSale</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-   
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -31,12 +33,6 @@
     <!-- Custom styles for this template -->
 
     <link href="carousel.css" rel="stylesheet">
-
-    <style>
-    body {
-      padding-top: 60px;
-    }
-    </style>
 
   </head>
 <!-- NAVBAR
@@ -59,10 +55,10 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-                <li><a href="login.php">Sign in</a></li>
-                <li class="active"><a href="logout.php">Sign out</a></li>
+                <li><a href="search.php">View Listings</a></li>
+                <li class="active"><a href="list.php">Post a Listing</a></li>
+                <li><a href="logout.php">Sign out</a></li>
+
 
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
@@ -72,6 +68,17 @@
 
       </div>
     </div>
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+
+        <p>&copy; 2016 YardSale &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+
+      </footer>
+
+    </div><!-- /.container -->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
