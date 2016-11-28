@@ -94,7 +94,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <li><a href="about.html">About</a></li>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li class="active"><a href="login.php">Sign in</a></li>
-                <li><a href="member.php">Member</a></li>
 
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
