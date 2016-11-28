@@ -80,6 +80,8 @@
                     echo "<li><a href='logout.php'>Sign out</a></li>";
                   }
                 ?>
+                
+
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
             </div>

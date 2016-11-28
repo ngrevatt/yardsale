@@ -72,6 +72,9 @@
                     echo "<li><a href='logout.php'>Sign out</a></li>";
                   }
                 ?>
+                <li><a href="about.html">About</a></li>
+                <li class="active"><a href="signup.html">Sign Up</a></li>
+
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
             </div>
