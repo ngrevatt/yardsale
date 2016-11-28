@@ -3,29 +3,35 @@
 
 <html lang="en">
 <?php
+  if(isset($_GET['error'])) {
+    echo "<script type='text/javascript'>alert('Incorrect email or password');</script>";
+  }
   if (isset($_GET['login'])) {
     $servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "yardsale";
-	$email = $_POST['email'];
-	$sql="SELECT * FROM users WHERE email='$email'";
-	$result=mysql_query($sql);
-	$password = $_POST['password'];
+  $username = "root";
+  $password = "";
+  $dbname = "yardsale";
+  $email = $_POST['email'];
+  $sql="SELECT * FROM users WHERE email='$email'";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  $result=$conn->query($sql);
+  $pass = $_POST['password'];
 
 // Mysql_num_row is counting table row
-$count=mysql_num_rows($result);
+$count=mysqli_num_rows($result);
 // If result matched $username and $password, table row must be 1 row
 if($count==1){
-    $row = mysql_fetch_assoc($result);
-    if ($password == $row['password']){
+    $row = mysqli_fetch_assoc($result);
+    if ($pass == $row['Password']){
         session_start(); 
         $_SESSION['user'] = $email;
-        header( 'Location: localhost/yardsale/' ) ;
+        header( 'Location: /yardsale/' ) ;
         echo "Login Successful";
         return true;
     }
     else {
+      
+      header( 'Location: /yardsale/login.php?error=true' ) ;
         echo "Wrong Username or Password";
         return false;
     }
@@ -40,6 +46,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
   }
 
 ?>
+
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -110,11 +118,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">
         		<div class="panel-heading">
+
 			    	<h3 class="panel-title" style="text-align:center">Login to YardSale</h3>
 			 </div>
 			 <div class="panel-body">
 
-			    	<form action = "login.php?login=true" method="POST" role="form" id="registration-form">
+			    	<form action = "login.php?login=true?error=false" method="POST" role="form" id="registration-form">
 
 
 			    	<div class="form-group">
@@ -128,6 +137,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 			<input type="submit" value="Log In" class="btn btn-info btn-block">
 			    		
 	      	</form>
+
 	</div>
 </div>
 </div>
