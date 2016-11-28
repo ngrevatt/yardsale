@@ -3,6 +3,9 @@
 
 <html lang="en">
 <?php
+if(isset($_COOKIE["logged_in"])) {
+    header('Location: member.html');
+} else {
   if(isset($_GET['error'])) {
     echo "<script type='text/javascript'>alert('Incorrect email or password');</script>";
   }
@@ -27,6 +30,7 @@ if($count==1){
         $_SESSION['user'] = $email;
         header( 'Location: /yardsale/' ) ;
         echo "Login Successful";
+        setcookie('logged_in', true, time() + 3600, '/');
         return true;
     }
     else {
@@ -44,7 +48,7 @@ else{
 $conn = new mysqli($servername, $username, $password, $dbname);
 
   }
-
+}
 ?>
 
 
@@ -94,14 +98,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html">YardSale</a>
+              <a class="navbar-brand" href="index.php">YardSale</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li class="active"><a href="login.php">Sign in</a></li>
+                <li><a href="logout.php">Sign out</a></li>
 
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
