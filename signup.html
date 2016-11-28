@@ -54,6 +54,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="active"><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.php">Sign in</a></li>
+                <li><a href="member.php">Member</a></li>
 
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
@@ -94,6 +96,11 @@
 			    	<div class="form-group">
 			    		<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address"
                                             data-validation="required email" data-validation-error-msg="Not a valid email">
+			    	</div>
+
+					<div class="form-group">
+			    		<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"
+                                             data-validation="required custom" data-validation-regexp="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
 			    	</div>
 
 			    	<div class="form-group">
@@ -181,7 +188,7 @@
 				<div class="form-group">
 			    		<input type="cvv" name="cvv" id="cvv" class="form-control input-sm" placeholder="CVV"
                                              data-validation="required custom" data-validation-regexp="^([0-9]{3,4})$">
-			    	</div>
+			    	</div>		
 			    	
 
 				<div class="row">
@@ -230,10 +237,6 @@
 			    			</div>
                                                   		</div>
 			    	</div>
-			<div class="form-group">
-			    		<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"
-                                             data-validation="required custom" data-validation-regexp="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$">
-			    	</div>		
 			<input type="submit" value="Sign Up" class="btn btn-info btn-block">
 			    		
 	      	</form>
