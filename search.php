@@ -55,6 +55,7 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
                 <li class="active"><a href="search.php">View Listings</a></li>
                 <li><a href="list.php">Post a Listing</a></li>
                 <li><a href="logout.php">Sign out</a></li>

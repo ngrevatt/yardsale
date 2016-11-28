@@ -59,6 +59,16 @@
                 <li><a href="index.php">Home</a></li>
                 <li  class='active'><a href="about.php">About</a></li>
                 <?php
+                  if(isset($_COOKIE["logged_in"])) {
+                    echo "<li><a href='search.php'>View Listings</a></li>";
+                  }
+                ?>
+                <?php
+                  if(isset($_COOKIE["logged_in"])) {
+                    echo "<li><a href='list.php'>Post a Listing</a></li>";
+                  }
+                ?>
+                <?php
                   if(!isset($_COOKIE["logged_in"])) {
                     echo "<li><a href='signup.php'>Sign Up</a></li>";
                   }
@@ -69,8 +79,6 @@
                     echo "<li><a href='login.php'>Sign in</a></li>";
                   }
                 ?>
-                
-
                 <?php
                   if(isset($_COOKIE["logged_in"])) {
                     echo "<li><a href='logout.php'>Sign out</a></li>";

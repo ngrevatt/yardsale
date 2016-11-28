@@ -1,9 +1,6 @@
 
 ﻿
 <!DOCTYPE html>
-<?php
-  //header('Location: about.html');
-?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -57,26 +54,13 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class='active'><a href="index.php">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <?php
-                  if(!isset($_COOKIE["logged_in"])) {
-                    echo "<li><a href='signup.php'>Sign Up</a></li>";
-                  }
-                ?>
-                
-                <?php
-                  if(!isset($_COOKIE["logged_in"])) {
-                    echo "<li><a href='login.php'>Sign in</a></li>";
-                  }
-                ?>
-                
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="search.php">View Listings</a></li>
+                <li><a href="list.php">Post a Listing</a></li>
+                <li><a href="logout.php">Sign out</a></li>
 
-                <?php
-                  if(isset($_COOKIE["logged_in"])) {
-                    echo "<li><a href='logout.php'>Sign out</a></li>";
-                  }
-                ?>
+
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
             </div>
