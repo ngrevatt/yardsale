@@ -64,7 +64,6 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li><a href="login.php">Sign in</a></li>
-                <li><a href="logout.php">Sign out</a></li>
 
                 <p class="navbar-text" style="font-style:italic">“Do you prefer to use meters or yards?”</p>
               </ul>
