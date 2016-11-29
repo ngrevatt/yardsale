@@ -1,5 +1,35 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="en">
+<?php
+
+  if (isset($_GET['delete'])) {
+    $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "yardsale";
+  $address = $_POST['address'];
+  $month = $_POST['month'];
+  $day = $_POST['day'];
+  $year = $_POST['year'];
+
+  $sql="DELETE FROM listings WHERE address = '$address' AND year = '$year' AND month = '$month' AND day = '$day'";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  $result=$conn->query($sql);
+
+
+
+
+  }
+
+?>
+
+
+
+
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -106,21 +136,44 @@
       <hr class="featurette-divider">
 <div>
       <div class="row featurette">
+        <table class="table">
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Month</th>
+      <th>Day</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
        <?php
+  
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "yardsale";
-  $sql="SELECT * FROM listings";
+  $location = $_SESSION['location'];
+  $sql="SELECT * FROM listings WHERE city='$location'";
   $conn = new mysqli($servername, $username, $password, $dbname);
   $result=$conn->query($sql);
   while ($row = mysqli_fetch_array($result)) {
-    echo $row['Email'], "\n";
+    echo "<tr>";
+    echo "<form action = 'mylistings.php?delete=true' method='POST' role='form' id='registration-form'>";
+    echo "<td><input type = 'hidden' id='address' name='address' value = '",$row['Address'],"'>", $row['Address'], "</td>";
+    echo "<td><input type = 'hidden' id='description' name='description' value = '",$row['Description'],"'>", $row['Description'], "</td>";
+    echo "<td><input type = 'hidden' id='month' name='month' value = '",$row['Month'],"'>", $row['Month'], "</td>";
+    echo "<td><input type = 'hidden' id='day' name='day' value = '",$row['Day'],"'>", $row['Day'], "</td>";
+    echo "<td><input type = 'hidden' id='year' name='year' value = '",$row['Year'],"'>", $row['Year'], "</td>";
+    echo "<td><input type='submit' value='Delete' class='btn btn-info btn-block'></td>";
+    echo "</tr>";
   }
   
 ?>
         
-        
+ </tbody>
+</table>
+       
       </div>
     </div>
       <hr class="featurette-divider">

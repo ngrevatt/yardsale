@@ -99,11 +99,11 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+    <div class="container marketing" style = "padding-top:60px">
 
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
+      
 <div>
       <div class="row featurette">
         <div class="col-md-7">

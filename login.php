@@ -22,7 +22,7 @@ if(isset($_COOKIE["logged_in"])) {
 // Mysql_num_row is counting table row
 $count=mysqli_num_rows($result);
 // If result matched $username and $password, table row must be 1 row
-if($count==1){
+if($count>=1){
     $row = mysqli_fetch_assoc($result);
     if ($pass == $row['Password']){
         session_start(); 
