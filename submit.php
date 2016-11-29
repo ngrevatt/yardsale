@@ -145,7 +145,11 @@ $sql = "INSERT INTO users (FirstName, LastName, Email, State, City, ZipCode, Add
 ('$first_name', '$last_name', '$email', '$state', '$city', '$zip_code', '$address', '$credit_card', '$month', '$year', '$cvv', '$password' );";
 
 
-
+session_start(); 
+        $_SESSION['user'] = $email;
+        $_SESSION['location'] = $row['City'];
+        echo "Login Successful";
+        setcookie('logged_in', true, time() + 3600, '/');
 $mail = new PHPMailer();
 $mail->isSMTP();
 $mail->SMTPDebug = 0;

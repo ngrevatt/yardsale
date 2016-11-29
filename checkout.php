@@ -129,6 +129,11 @@ setcookie('logged_in', true, time() + 3600, '/');
 
 
 
+  if(isset($_COOKIE["logged_in"])) {
+    header('Location: member.php');
+    
+  }
+
 $conn->close();
 ?>
 </h3>
