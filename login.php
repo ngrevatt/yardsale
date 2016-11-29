@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <?php
 if(isset($_COOKIE["logged_in"])) {
