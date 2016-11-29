@@ -99,11 +99,11 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+    <div class="container marketing" style = "padding-top:60px">
 
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
+      
 <div>
       <div class="row featurette">
         <div class="col-md-7">
@@ -147,7 +147,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"></script>')</script>
+    <script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"></script></script>
     <script src="./dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="./assets/js/vendor/holder.min.js"></script>

@@ -22,7 +22,7 @@ if(isset($_COOKIE["logged_in"])) {
 // Mysql_num_row is counting table row
 $count=mysqli_num_rows($result);
 // If result matched $username and $password, table row must be 1 row
-if($count==1){
+if($count>=1){
     $row = mysqli_fetch_assoc($result);
     if ($pass == $row['Password']){
         session_start(); 
@@ -179,7 +179,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     <!-- Placed at the end of the document so the pages load faster -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script></script>
     <script src="dist/js/bootstrap.min.js"></script>
 
     <!--jQuery Form Validator-->
