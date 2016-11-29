@@ -28,6 +28,7 @@ if($count==1){
     if ($pass == $row['Password']){
         session_start(); 
         $_SESSION['user'] = $email;
+        $_SESSION['location'] = $row['City'];
         header( 'Location: /yardsale/' ) ;
         echo "Login Successful";
         setcookie('logged_in', true, time() + 3600, '/');
