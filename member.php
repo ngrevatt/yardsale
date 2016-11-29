@@ -91,8 +91,7 @@
       </div>
     </div>
 
-    <div class="container marketing">
-        <hr class="featurette-divider">
+    <div class="container marketing" style="padding-top:60px">
             <div>
                 <div class="row featurette">
                     <div class="col-md-9">
