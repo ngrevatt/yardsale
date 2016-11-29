@@ -135,13 +135,14 @@ session_start();
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
+    <div class="container marketing"  style="padding-top:60px">
 
       <!-- START THE FEATURETTES -->
 
-      <hr class="featurette-divider">
+      
 <div>
       <div class="row featurette">
+        <h2 class="text-center" style='padding-top:20px'>Your Listings</h2>
         <table class="table">
   <thead>
     <tr>
