@@ -74,7 +74,11 @@
                   }
                 ?>
                 
-
+                <?php
+                  if(isset($_COOKIE["logged_in"])) {
+                    echo "<li><a href='mylistings.php'>Your Listings</a></li>";
+                  }
+                ?>
                 <?php
                   if(isset($_COOKIE["logged_in"])) {
                     echo "<li><a href='logout.php'>Sign out</a></li>";
