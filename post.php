@@ -101,7 +101,7 @@ $sql = "INSERT INTO listings (Email, Phone, Address, City, State, Zip, Descripti
 ('$email', '$phone', '$address', '$city', '$state', '$zip_code', '$description', '$month', '$day', '$year' );";
 
 if ($conn->query($sql) === TRUE) {
-	echo "New record created successfully";
+	header("Location: search.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

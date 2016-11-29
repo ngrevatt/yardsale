@@ -87,7 +87,7 @@ session_start();
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="index.php">Home</a></li>
-                <li  class='active'><a href="about.php">About</a></li>
+                <li><a href="about.php">About</a></li>
                 <?php
                   if(isset($_COOKIE["logged_in"])) {
                     echo "<li><a href='search.php'>View Listings</a></li>";
