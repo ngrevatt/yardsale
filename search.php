@@ -70,6 +70,20 @@
       </div>
     </div>
 
+    <?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "yardsale";
+  $sql="SELECT * FROM listings";
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  $result=$conn->query($sql);
+  while ($row = mysqli_fetch_array($result)) {
+    echo $row['Email'], "\n";
+  }
+  
+?>
+
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
