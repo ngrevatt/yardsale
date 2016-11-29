@@ -104,8 +104,8 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container" style='padding-top: 50px'>
+    <h2 class="text-center" style='padding-top:65px'>Listings in your city</h2>
+    <div class="container" style="padding-top:25px">
       <table class="table">
   <thead>
     <tr>
@@ -143,6 +143,181 @@
 ?>
   </tbody>
 </table>
+<h2 class="text-center" style='padding-top:65px'>Search for listings in another city</h2><div class="container">
+        <div class="row centered-form" style="padding-top:30px">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+
+            <h3 class="panel-title" style="text-align:center">Search Listings</h3>
+       </div>
+       <div class="panel-body">
+
+            <form action = "search_results.php" method="POST" role="form" id="registration-form">
+
+              Location
+              <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="city" name="city" id="city" class="form-control input-sm" placeholder="City"
+                                                            data-validation="required custom" data-validation-regexp="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$">
+                                                                            </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+              <select class="form-control" id="state" name="state">
+                <option value="VA">Virginia</option>
+                <option value="AK">Alaska</option>
+                <option value="AL">Alabama</option>
+                <option value="AR">Arkansas</option>
+                <option value="AZ">Arizona</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DC">District of Columbia</option>
+                <option value="DE">Delaware</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="IA">Iowa</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MD">Maryland</option>
+                <option value="ME">Maine</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MO">Missouri</option>
+                <option value="MS">Mississippi</option>
+                <option value="MT">Montana</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="NE">Nebraska</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NV">Nevada</option>
+                <option value="NY">New York</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="WA">Washington</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WV">West Virginia</option>
+                <option value="WY">Wyoming</option>
+              </select>
+            </div>
+          </div>
+            </div>
+
+      Date
+
+        <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                      <select class="form-control" id="month" name="month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                
+              </select>
+                  </div>
+              </div>
+
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                      <select class="form-control" id="day" name="day">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">10</option>
+                <option value="14">11</option>
+                <option value="15">12</option>
+                <option value="16">10</option>
+                <option value="17">11</option>
+                <option value="18">12</option>
+                <option value="19">10</option>
+                <option value="20">11</option>
+                <option value="21">12</option>
+                <option value="22">11</option>
+                <option value="23">12</option>
+                <option value="24">11</option>
+                <option value="25">12</option>
+                <option value="26">11</option>
+                <option value="27">12</option>
+                <option value="28">11</option>
+                <option value="29">12</option>
+                <option value="30">11</option>
+                <option value="31">12</option>
+              </select>
+                  </div>
+              </div>
+
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <select class="form-control" id="year" name="year">
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+                <option value="2032">2032</option>
+                <option value="2033">2033</option>
+                
+              </select>
+                </div>
+                                                      </div>
+            </div>    
+      <input type="submit" value="Search" class="btn btn-info btn-block">
+              
+          </form>
+
+  </div>
+</div>
+</div>
+</div>
 
 
       <!-- FOOTER -->
