@@ -89,7 +89,7 @@
 
             <div class="form-group">
               <input type="phone" name="phone" id="phone" class="form-control input-sm" placeholder="Phone number"
-                                             data-validation="required custom" data-validation-regexp="">
+                                             data-validation="required custom" data-validation-regexp="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$">
             </div>
           Rental Space info:
             <div class="form-group">
