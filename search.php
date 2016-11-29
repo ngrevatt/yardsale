@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-session_start();
-?>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,37 +99,22 @@ session_start();
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<table class="table">
+    <div class="container" style='padding-top: 50px'>
+      <table class="table">
   <thead>
     <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Month</th>
+      <th>Day</th>
+      <th>Year</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
        <?php
+  session_start();
   $servername = "localhost";
   $username = "root";
   $password = "";
@@ -142,10 +124,21 @@ session_start();
   $conn = new mysqli($servername, $username, $password, $dbname);
   $result=$conn->query($sql);
   while ($row = mysqli_fetch_array($result)) {
-    echo $row['Email'], "\n";
+    echo "<tr>";
+    echo "<td>", $row['Email'], "</td>";
+    echo "<td>", $row['Phone'], "</td>";
+    echo "<td>", $row['Address'], "</td>";
+    echo "<td>", $row['Description'], "</td>";
+    echo "<td>", $row['Month'], "</td>";
+    echo "<td>", $row['Day'], "</td>";
+    echo "<td>", $row['Year'], "</td>";
   }
   
 ?>
+  </tbody>
+</table>
+
+
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
